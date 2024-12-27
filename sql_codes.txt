@@ -1,0 +1,25 @@
+-- Create the database
+CREATE DATABASE nike;
+
+-- -- Create the 'shoes' table
+CREATE TABLE shoes (
+     id INT AUTO_INCREMENT PRIMARY KEY, -- Unique ID for each shoe
+     name VARCHAR(255) NOT NULL,        -- Shoe name
+     image_url VARCHAR(255) NOT NULL,   -- URL or path to the shoe image
+     category VARCHAR(255) NOT NULL,    -- Category of the shoe (Men, Women, Kids)
+     price DECIMAL(10, 2) NOT NULL,     -- Price of the shoe
+     section VARCHAR(255)		-- For filtering in different section
+ );
+
+-- Insert Data Into Table
+INSERT INTO shoes 
+(name, image_url, category, price, section)
+VALUES
+("Nike Air Max Plus Drift", "img/products/nike_air_max_plus_drift.png", "Men", 120.00, "new"),
+("Nike Air Max TW", "img/products/nike_air_max_tw.png", "Men", 100.00, "new"),
+("Nike Air Max Plus III", "img/products/nike_air_max_plus_III.png", "Men", 120.00, "new"),
+("Nike Streakfly", "img/products/nike_streakfly.png", "Women", 100.00, "new"),
+("Nike Metcon 9", "img/products/nike_metcon_9.jpeg", "Men", 100.00, "new"),
+("Nike React Phantom Run", "img/products/nike_react_phantom_run.png", "Kids", 70.00, "new"),
+("Air Force 1 Mid", "img/products/air_force_1_mid.png", "Men", 140.00, "new");
+
