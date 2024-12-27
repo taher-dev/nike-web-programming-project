@@ -1,0 +1,89 @@
+/* General Styles */
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #111;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.shoe-card {
+  display: flex;
+  gap: 4rem;
+}
+/* Header Section */
+.shoe-card h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* Shoe Image */
+.shoe-card img {
+  display: block;
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Shoe Details */
+.shoe-card p {
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.shoe-card p strong {
+  color: #555;
+}
+
+/* Price Highlight */
+.shoe-card p:last-of-type {
+  /* font-size: 30px;
+  font-weight: bold;
+  color: #45c833;
+  margin-top: 1rem; */
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  color: #666;
+}
+
+/* Button */
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  text-align: center;
+  margin-top: 6rem;
+}
+
+.action-buttons a {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #fff;
+  background: #111;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.action-buttons a:hover {
+  background: #11111190;
+}
+
+.cart-btn {
+  padding: 10px 50px !important;
+}
