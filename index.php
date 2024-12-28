@@ -35,7 +35,88 @@ $conn->close();
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <style>
+    .favorite,
+    .cart {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    a.favorite:hover,
+    a.cart:hover {
+      background-color: #11111120;
+    }
+
+    #page-4 {
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+      z-index: 8;
+    }
+
+    .page-4-wrapper {
+      background-color: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 120px;
+      border-radius: 30px;
+    }
+
+    .page-4-wrapper img {
+      width: 50%;
+      height: 60vh;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 30px;
+    }
+
+    .hide {
+      display: none;
+    }
+
+    .page-4-left {
+      display: flex;
+      flex-direction: column;
+      margin: 4vw auto auto auto;
+      text-wrap: pretty;
+      font-weight: 200;
+      font-size: 2.2rem;
+      line-height: 4.3rem;
+    }
+
+    .page-4-left-top h1 {
+      font-size: 40px;
+      cursor: pointer;
+      padding-left: 1rem;
+      color: #ffffff70;
+      border-left: 3px solid #ffffff70;
+    }
+
+    .page-4-left h1:nth-child(3) {
+      margin-bottom: 3rem;
+    }
+
+    .page-4-left-bottom p {
+      color: #ffffff99;
+      max-width: 30ch;
+      font-size: 1.1rem;
+      line-height: 1.5rem;
+    }
+
+    .select {
+      color: #fff !important;
+      border-left: 3px solid #fff !important;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -67,8 +148,8 @@ $conn->close();
 
 
 
-      <a href="#"><img src="img/heart-svgrepo-com (1).svg" alt="Favorite Icon" /></a>
-      <a href="#"><img src="img/shopping-bag-svgrepo-com.svg" alt="Cart Icon" /></a>
+      <a href="#" class="favorite"><img src="img/heart-svgrepo-com (1).svg" alt="Favorite Icon" /></a>
+      <a href="#" class="cart"><img src="img/shopping-bag-svgrepo-com.svg" alt="Cart Icon" /></a>
     </div>
 
     <!-- Hamburger Icon (Visible on mobile) -->
@@ -173,6 +254,36 @@ $conn->close();
     </div>
   </div>
 
+  <div id="page-4">
+    <div class="page-4-wrapper">
+      <div class="page-4-left">
+        <div class="page-4-left-top">
+          <h1 id="design-h1" class="select">Nike X Dior</h1>
+          <h1 id="project-h1" class="">Nike X One Piece</h1>
+          <h1 id="execution-h1" class="">Nike X Tiffany & Co.</h1>
+        </div>
+        <div class="page-4-left-bottom">
+          <p class="design-p">
+            Handcrafted in Italy from calfskin leather and accented with Dior's signature Oblique monogram jacquard
+            Swooshes. Dior and Air Jordan's iconic branding are mixed on the Wings logo, tongue labels and outsole
+            graphics.
+          </p>
+          <p class="project-p hide">
+            Gear up for adventure with Nike x ONE PIECE. This collab blends Nike's classic street style with One Piece’s
+            island-hopping sense of adventure.
+          </p>
+          <p class="execution-p hide">
+            The Nike/Tiffany Air Force 1 1837 is crafted in premium black suede with a Tiffany Blue® Swoosh and archival
+            Tiffany logo on the tongue.
+          </p>
+        </div>
+      </div>
+      <img src="img/collab/nike_x_dior.jpg" alt="Nike X Dior" loading="lazy" class="" />
+      <img src="img/collab/nike_x_onepiece.png" alt="Nike X One Piece" loading="lazy" class="hide" />
+      <img src="img/collab/nike_x_tiffany_&_co.webp" alt="Nike X Tiffany & Co" loading="lazy" class="hide" />
+    </div>
+  </div>
+
   <!-- Footer Section -->
   <footer class="footer">
     <div class="footer-container">
@@ -268,6 +379,8 @@ $conn->close();
 
     // Search Bar End
   </script>
+
+  <script type="module" src="collab.js"></script>
 
   <script src="script.js"></script>
 </body>

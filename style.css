@@ -128,6 +128,18 @@ nav .nav-icons {
   display: flex;
   gap: 20px;
 }
+.nav-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.nav-icons a:hover {
+  background-color: #11111120;
+}
 
 /* Icon Size */
 nav .nav-icons img {
@@ -372,6 +384,15 @@ nav .nav-icons img {
   flex: 0 0 calc((100% - 240px - 40px) / 3); /* Maintain gutter and gaps */
   max-width: calc((100% - 240px - 40px) / 3); /* Prevent overflow */
   text-align: center;
+}
+
+.slide img:hover {
+  border: 1px solid #11111130;
+  border-radius: 8px;
+}
+
+.slide h3:hover {
+  text-decoration: underline;
 }
 
 .slide img {
