@@ -1,30 +1,3 @@
-<?php
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "nike";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// Fetch shoe data from database
-$sql = "SELECT id, name, image_url, section FROM shoes";
-$result = $conn->query($sql);
-$shoes = [];
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
-    $shoes[] = $row;
-  }
-}
-$conn->close();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -131,7 +104,7 @@ $conn->close();
       <a href="all_shoe.php?category=Men">Men</a>
       <a href="all_shoe.php?category=Women">Women</a>
       <a href="all_shoe.php?category=Kids">Kids</a>
-      <a href="#">Sign in</a>
+      <a href="sign_in.php">Sign in</a>
     </div>
 
     <!-- Right Icons (Hidden on mobile) -->
@@ -199,6 +172,33 @@ $conn->close();
       </div>
     </div>
   </main>
+
+  <?php
+  // Database connection
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "nike";
+
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+
+  // Fetch shoe data from database
+  $sql = "SELECT id, name, image_url, section FROM shoes";
+  $result = $conn->query($sql);
+  $shoes = [];
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      $shoes[] = $row;
+    }
+  }
+  $conn->close();
+  ?>
 
   <section id="new-arrivals">
     <div id="sec-1-title">
