@@ -341,27 +341,59 @@ nav .nav-icons img {
 
 /* Slides Start  */
 
+#new-arrivals {
+  padding-top: 6rem;
+}
+
 .title-circle {
   width: 20px;
-  aspect-ratio: 1/1;
+  height: 20px; /* Explicit height for better compatibility */
   border-radius: 50%;
   background-color: #11111130;
 }
 
 #sec-1-title {
   display: flex;
-  gap: 0.5vw;
   align-items: center;
+  justify-content: space-between;
   margin-left: 120px;
+  margin-right: 120px;
   margin-top: 6rem;
   margin-bottom: 2rem;
-  /* padding: 0 2vw; */
 }
 
-#sec-1-title h5 {
+.section-1-title-left {
+  display: flex;
+  align-items: center; /* Ensures vertical alignment */
+}
+
+.title-h5 h5 {
   font-size: 18px;
   font-weight: 600;
   color: #111;
+  margin: 0; /* Remove default margin */
+  padding: 10px 20px;
+}
+
+/* show all btn styles  */
+
+.show-all-btn {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  /* font-size: 18px;s */
+  color: #111;
+  background: #fff;
+  /* outline: 2px solid #111;
+  outline-offset: -2px; */
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+a.show-all-btn:hover {
+  color: #111;
+  background: #eee;
 }
 
 .slider-container {

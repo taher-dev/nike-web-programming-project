@@ -52,10 +52,6 @@ body {
 
 /* Price Highlight */
 .shoe-card p:last-of-type {
-  /* font-size: 30px;
-  font-weight: bold;
-  color: #45c833;
-  margin-top: 1rem; */
   font-family: Arial, sans-serif;
   font-size: 24px;
   color: #666;
@@ -69,7 +65,9 @@ body {
   margin-top: 6rem;
 }
 
-.action-buttons a {
+.action-buttons button {
+  cursor: pointer;
+  border: none;
   display: inline-block;
   text-decoration: none;
   padding: 10px 20px;
@@ -80,7 +78,27 @@ body {
   transition: background-color 0.3s;
 }
 
+.action-buttons a {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #111;
+  background: #fff;
+  outline: 2px solid #111;
+  outline-offset: -2px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
 .action-buttons a:hover {
+  color: #111;
+  background: #eee;
+}
+
+.action-buttons button:hover {
+  color: #fff;
   background: #11111190;
 }
 

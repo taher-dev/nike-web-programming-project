@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Database connection
 $servername = "localhost";
 $username = "root";
@@ -11,6 +13,40 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+}
+
+// Initialize the cart if it doesn't exist
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+
+// Handle Add to Cart
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['shoe_id'])) {
+    $shoe_id = (int) $_POST['shoe_id'];
+    $shoe_name = $_POST['shoe_name'];
+    $shoe_price = (float) $_POST['shoe_price'];
+    $shoe_image = $_POST['shoe_image'];
+
+    // Check if the item is already in the cart
+    $item_exists = false;
+    foreach ($_SESSION['cart'] as &$item) {
+        if ($item['id'] === $shoe_id) {
+            $item['quantity'] += 1; // Increment quantity if item already exists
+            $item_exists = true;
+            break;
+        }
+    }
+
+    // If item doesn't exist, add it to the cart
+    if (!$item_exists) {
+        $_SESSION['cart'][] = [
+            'id' => $shoe_id,
+            'name' => $shoe_name,
+            'price' => $shoe_price,
+            'image' => $shoe_image,
+            'quantity' => 1
+        ];
+    }
 }
 
 // Get selected category from the dropdown (default is 'All')
@@ -35,16 +71,15 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Products</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="all_shoe.css">
 </head>
+
 <body>
 
     <main>
@@ -72,7 +107,13 @@ $conn->close();
                             <h2><?php echo $shoe['name']; ?></h2>
                             <p>$<?php echo $shoe['price']; ?></p>
                         </a>
-                        <button>Add to Cart</button>
+                        <form method="POST" action="">
+                            <input type="hidden" name="shoe_id" value="<?php echo $shoe['id']; ?>">
+                            <input type="hidden" name="shoe_name" value="<?php echo $shoe['name']; ?>">
+                            <input type="hidden" name="shoe_price" value="<?php echo $shoe['price']; ?>">
+                            <input type="hidden" name="shoe_image" value="<?php echo $shoe['image_url']; ?>">
+                            <button type="submit">Add to Cart</button>
+                        </form>
                     </div>
                 <?php endforeach; ?>
             <?php else: ?>
@@ -81,4 +122,5 @@ $conn->close();
         </div>
     </main>
 </body>
+
 </html>

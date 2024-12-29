@@ -1,3 +1,30 @@
+<?php
+// Database connection
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "nike";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+// Fetch shoe data from database
+$sql = "SELECT id, name, image_url, section FROM shoes";
+$result = $conn->query($sql);
+$shoes = [];
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()) {
+    $shoes[] = $row;
+  }
+}
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,7 +149,7 @@
 
 
       <a href="#" class="favorite"><img src="img/heart-svgrepo-com (1).svg" alt="Favorite Icon" /></a>
-      <a href="#" class="cart"><img src="img/shopping-bag-svgrepo-com.svg" alt="Cart Icon" /></a>
+      <a href="view_cart.php" class="cart"><img src="img/shopping-bag-svgrepo-com.svg" alt="Cart Icon" /></a>
     </div>
 
     <!-- Hamburger Icon (Visible on mobile) -->
@@ -173,37 +200,21 @@
     </div>
   </main>
 
-  <?php
-  // Database connection
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "nike";
 
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-
-  // Fetch shoe data from database
-  $sql = "SELECT id, name, image_url, section FROM shoes";
-  $result = $conn->query($sql);
-  $shoes = [];
-  if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-      $shoes[] = $row;
-    }
-  }
-  $conn->close();
-  ?>
 
   <section id="new-arrivals">
     <div id="sec-1-title">
-      <div class="title-circle"></div>
-      <h5>NEW & FEATURED</h5>
+      <div class="section-1-title-left">
+        <div class="title-circle"></div>
+        <div class="title-h5">
+          <h5>NEW & FEATURED</h5>
+        </div>
+      </div>
+      <div class="sec-1-title-right">
+        <a class="show-all-btn" href="all_shoe.php?category=All">Show All</a>
+      </div>
+    </div>
+
     </div>
     <div class="slider-container">
       <button class="slider-button prev" onclick="prevSlide()">
