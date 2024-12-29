@@ -128,18 +128,6 @@ nav .nav-icons {
   display: flex;
   gap: 20px;
 }
-.nav-icons a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.nav-icons a:hover {
-  background-color: #11111120;
-}
 
 /* Icon Size */
 nav .nav-icons img {
