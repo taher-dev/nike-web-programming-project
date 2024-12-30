@@ -301,7 +301,6 @@ $conn->close();
       <!-- Footer Logo -->
       <div class="footer-logo">
         <img src="img/nike-hero (1).svg" alt="Nike Logo" class="logo" />
-        <!-- <p>Just Do It. Innovating for the future.</p> -->
       </div>
 
       <!-- About Us -->
@@ -385,7 +384,7 @@ $conn->close();
       setTimeout(() => {
         const suggestions = document.getElementById("suggestions");
         suggestions.style.display = "none"; // Hide after a brief delay
-      }, 200); // Delay to allow click events to register
+      }, 200); // Delay for click
     }
 
     // Search Bar End
