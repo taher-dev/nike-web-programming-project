@@ -1,8 +1,10 @@
 -- Create the database
-CREATE DATABASE nike;
+CREATE DATABASE IF NOT EXISTS nike;
+
+USE nike;
 
 -- -- Create the 'shoes' table
-CREATE TABLE shoes (
+CREATE TABLE NOT EXISTS shoes (
      id INT AUTO_INCREMENT PRIMARY KEY, -- Unique ID for each shoe
      name VARCHAR(255) NOT NULL,        -- Shoe name
      image_url VARCHAR(255) NOT NULL,   -- URL or path to the shoe image
@@ -12,7 +14,7 @@ CREATE TABLE shoes (
  );
 
 -- Insert Data Into Table
-INSERT INTO shoes 
+INSERT INTO NOT EXISTS shoes 
 (name, image_url, category, price, section)
 VALUES
 ("Nike Air Max Plus Drift", "img/products/nike_air_max_plus_drift.png", "Men", 120.00, "new"),

@@ -1,6 +1,11 @@
 <?php
+// Session must be started to access session variables
 session_start();
+// Includes the database connection script
 include("connect.php");
+
+// IMPORTANT: Select the 'login' database to ensure we query the correct table.
+mysqli_select_db($conn, "login");
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +16,7 @@ include("connect.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Card</title>
     <style>
+        /* CSS remains the same... */
         * {
             margin: 0;
             padding: 0;
@@ -72,6 +78,7 @@ include("connect.php");
             transition: background-color 0.3s;
             margin-bottom: 1rem;
             text-decoration: none;
+            display: inline-block;
         }
 
         .btn:hover {
@@ -96,7 +103,12 @@ include("connect.php");
             <?php if (isset($_SESSION['email']) && !empty($_SESSION['email'])): ?>
                 <?php
                 $email = $_SESSION['email'];
-                $query = mysqli_query($conn, "SELECT firstName, lastName FROM `users` WHERE email='$email'");
+                // SECURE: Use a prepared statement to prevent SQL injection.
+                $sql = "SELECT firstName, lastName FROM `users` WHERE email = ?";
+                $stmt = mysqli_prepare($conn, $sql);
+                mysqli_stmt_bind_param($stmt, "s", $email);
+                mysqli_stmt_execute($stmt);
+                $query = mysqli_stmt_get_result($stmt);
                 ?>
                 <?php if ($query && mysqli_num_rows($query) > 0): ?>
                     <?php $row = mysqli_fetch_assoc($query); ?>
@@ -104,7 +116,7 @@ include("connect.php");
                     <p>Email: <?php echo htmlspecialchars($email); ?></p>
                 <?php else: ?>
                     <h1>Guest</h1>
-                    <p>You are not logged in.</p>
+                    <p>You are not logged in or your user could not be found.</p>
                 <?php endif; ?>
             <?php else: ?>
                 <h1>Guest</h1>

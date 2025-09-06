@@ -1,28 +1,24 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "nike";
+// 1. Include the universal connection and setup script.
+// This removes the need for manual connection details in this file.
+require_once 'connect.php';
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+// 2. Explicitly select the 'nike' database to ensure we're querying the right one.
+mysqli_select_db($conn, "nike");
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-// Fetch shoe data from database
+// 3. Fetch shoe data from database (no changes to the query itself).
 $sql = "SELECT id, name, image_url, section FROM shoes";
-$result = $conn->query($sql);
+
+// Execute the query using the procedural style to match connect.php
+$result = mysqli_query($conn, $sql);
 $shoes = [];
-if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+
+// Check for results and fetch data
+if ($result && mysqli_num_rows($result) > 0) {
+  while ($row = mysqli_fetch_assoc($result)) {
     $shoes[] = $row;
   }
 }
-$conn->close();
 ?>
 
 <!DOCTYPE html>
