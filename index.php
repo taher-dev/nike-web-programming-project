@@ -1,24 +1,24 @@
 <?php
+// START THE SESSION to access login status.
+session_start();
+
 // 1. Include the universal connection and setup script.
-// This removes the need for manual connection details in this file.
 require_once 'connect.php';
 
-// 2. Explicitly select the 'nike' database to ensure we're querying the right one.
+// 2. Explicitly select the 'nike' database to work with.
 mysqli_select_db($conn, "nike");
 
-// 3. Fetch shoe data from database (no changes to the query itself).
+// 3. Fetch shoe data from the database.
 $sql = "SELECT id, name, image_url, section FROM shoes";
-
-// Execute the query using the procedural style to match connect.php
 $result = mysqli_query($conn, $sql);
 $shoes = [];
 
-// Check for results and fetch data
 if ($result && mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
     $shoes[] = $row;
   }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -127,7 +127,16 @@ if ($result && mysqli_num_rows($result) > 0) {
       <a href="all_shoe.php?category=Men">Men</a>
       <a href="all_shoe.php?category=Women">Women</a>
       <a href="all_shoe.php?category=Kids">Kids</a>
-      <a href="sign_in.php">Sign in</a>
+      <?php
+      // Check if the user is logged in
+      if (isset($_SESSION['email'])) {
+        // If logged in, show a link to the profile page
+        echo '<a href="profile.php">Profile</a>';
+      } else {
+        // If not logged in, show the sign-in link
+        echo '<a href="sign_in.php">Sign in</a>';
+      }
+      ?>
     </div>
 
     <!-- Right Icons (Hidden on mobile) -->
@@ -169,7 +178,14 @@ if ($result && mysqli_num_rows($result) > 0) {
       <a href="#">Men</a>
       <a href="#">Women</a>
       <a href="#">Kids</a>
-      <a href="#">Sign in</a>
+      <?php
+      // Use the same logic for the mobile menu
+      if (isset($_SESSION['email'])) {
+        echo '<a href="profile.php">Profile</a>';
+      } else {
+        echo '<a href="sign_in.php">Sign in</a>';
+      }
+      ?>
     </div>
   </div>
 
