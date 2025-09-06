@@ -81,6 +81,10 @@ $conn->close();
 </head>
 
 <body>
+    <?php
+    // Import navigation component.
+    include 'components/navbar.php';
+    ?>
 
     <main>
         <h1>Our Products</h1>

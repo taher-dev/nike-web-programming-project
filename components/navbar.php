@@ -1,6 +1,9 @@
 <?php
-// Start the session to access login status.
-session_start();
+// Check if a session has already been started
+if (session_status() === PHP_SESSION_NONE) {
+    // If not, start a new session
+    session_start();
+}
 ?>
 
 <link rel="stylesheet" href="components/navbar.css">

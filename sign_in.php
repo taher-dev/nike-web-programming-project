@@ -14,6 +14,10 @@
 </head>
 
 <body>
+  <?php
+  // Import navigation component.
+  include 'components/navbar.php';
+  ?>
   <div class="container" id="signup" style="display:none;">
     <h1 class="form-title">Register</h1>
     <form method="post" action="register.php">

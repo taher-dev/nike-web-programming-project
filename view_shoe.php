@@ -82,6 +82,10 @@ $conn->close();
 </head>
 
 <body>
+    <?php
+    // Import navigation component.
+    include 'components/navbar.php';
+    ?>
     <div class="container">
         <?php if ($shoe): ?>
             <div class="shoe-card">

@@ -113,6 +113,10 @@ if (!$conn) {
 </head>
 
 <body>
+    <?php
+    // Import navigation component.
+    include 'components/navbar.php';
+    ?>
     <div class="container">
         <h1>Your Cart</h1>
         <?php if (!empty($_SESSION['cart'])): ?>
