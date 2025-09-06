@@ -1,7 +1,4 @@
 <?php
-// START THE SESSION to access login status.
-session_start();
-
 // 1. Include the universal connection and setup script.
 require_once 'connect.php';
 
@@ -116,81 +113,10 @@ if ($result && mysqli_num_rows($result) > 0) {
 </head>
 
 <body>
-  <!-- Main Navigation Bar -->
-  <nav>
-    <!-- Nike Logo -->
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike Logo" class="logo"
-      onclick="window.location.reload()" />
-
-    <!-- Centered Links (Hidden on mobile) -->
-    <div class="nav-links">
-      <a href="all_shoe.php?category=Men">Men</a>
-      <a href="all_shoe.php?category=Women">Women</a>
-      <a href="all_shoe.php?category=Kids">Kids</a>
-      <?php
-      // Check if the user is logged in
-      if (isset($_SESSION['email'])) {
-        // If logged in, show a link to the profile page
-        echo '<a href="profile.php">Profile</a>';
-      } else {
-        // If not logged in, show the sign-in link
-        echo '<a href="sign_in.php">Sign in</a>';
-      }
-      ?>
-    </div>
-
-    <!-- Right Icons (Hidden on mobile) -->
-    <div class="nav-icons">
-
-      <div class="search-bar-wrapper">
-        <div class="search-bar">
-          <img src="img/search1.svg" alt="Search Icon" />
-          <input type="text" id="search-input" placeholder="Search" oninput="searchShoes()"
-            onfocus="toggleSuggestions(true)" onblur="hideSuggestions()" />
-        </div>
-        <div id="suggestions" class="suggestions"></div>
-      </div>
-
-
-
-      <a href="#" class="favorite"><img src="img/heart-svgrepo-com (1).svg" alt="Favorite Icon" /></a>
-      <a href="view_cart.php" class="cart"><img src="img/shopping-bag-svgrepo-com.svg" alt="Cart Icon" /></a>
-    </div>
-
-    <!-- Hamburger Icon (Visible on mobile) -->
-    <div class="hamburger" id="hamburger">☰</div>
-  </nav>
-
-  <!-- Sliding Mobile Navigation Menu with Close Button -->
-  <div class="mobile-nav" id="mobileNav">
-    <!-- Close Button -->
-    <div class="close-btn" id="closeBtn">&times;</div>
-
-    <!-- Icons at the top -->
-    <div class="mobile-nav-icons">
-      <a href="#"><img src="img/search-alt-1-svgrepo-com (1).svg" alt="Search Icon" /></a>
-      <a href="#"><img src="img/heart-svgrepo-com (1).svg" alt="Favorite Icon" /></a>
-      <a href="#"><img src="img/shopping-bag-svgrepo-com.svg" alt="Cart Icon" /></a>
-    </div>
-
-    <!-- Vertical Links -->
-    <div class="mobile-nav-links">
-      <a href="#">Men</a>
-      <a href="#">Women</a>
-      <a href="#">Kids</a>
-      <?php
-      // Use the same logic for the mobile menu
-      if (isset($_SESSION['email'])) {
-        echo '<a href="profile.php">Profile</a>';
-      } else {
-        echo '<a href="sign_in.php">Sign in</a>';
-      }
-      ?>
-    </div>
-  </div>
-
-  <!-- Tinted and Blurred Overlay -->
-  <div class="overlay" id="overlay"></div>
+  <?php
+  // This single line now includes your entire navigation component.
+  include 'components/navbar.php';
+  ?>
 
   <main class="hero">
     <h1 class="hero-title bebas-neue-regular">NIKE AIR</h1>
