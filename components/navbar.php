@@ -1,8 +1,9 @@
 <?php
 // Start the session to access login status.
-// This makes the navbar a self-contained component.
 session_start();
 ?>
+
+<link rel="stylesheet" href="components/navbar.css">
 
 <nav>
     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike Logo" class="logo"

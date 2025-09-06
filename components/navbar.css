@@ -1,0 +1,214 @@
+/* Main Navbar Styles */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 120px;
+  height: 60px;
+  font-family: "Inter", sans-serif;
+  position: relative;
+}
+
+/* Search Bar Styling */
+nav .nav-icons .search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background-color: #f9f9f9;
+  gap: 10px;
+  color: #111;
+}
+
+nav .nav-icons .search-bar img {
+  width: 20px;
+  height: 20px;
+}
+
+::placeholder {
+  color: #2b2626;
+  opacity: 1;
+}
+
+nav .nav-icons .search-bar input {
+  border: none;
+  outline: none;
+  font-size: 17px;
+  padding: 5px;
+  width: 120px;
+  background: none;
+  color: #000000;
+  text-align: left;
+  padding-left: 0px;
+}
+
+/* Suggestions Dropdown */
+.search-bar-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+}
+
+.suggestions {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.suggestions a:hover {
+  background-color: #f5f5f5;
+  color: #111;
+}
+
+/* Nike Logo Style */
+nav .logo {
+  width: 60px;
+  cursor: pointer;
+}
+
+/* Navigation Links Centered */
+nav .nav-links {
+  display: flex;
+  gap: 30px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+nav .nav-links a {
+  text-decoration: none;
+  color: #111;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Right-side Icons */
+nav .nav-icons {
+  display: flex;
+  gap: 20px;
+}
+
+nav .nav-icons img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Mobile Navigation Menu */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+  transition: right 0.3s ease;
+  z-index: 100;
+  padding: 20px;
+}
+
+.mobile-nav.active {
+  right: 0;
+}
+
+.close-btn {
+  align-self: flex-end;
+  font-size: 24px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.mobile-nav-icons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.mobile-nav-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+.mobile-nav-links {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.mobile-nav-links a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111;
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+/* Background Overlay for Mobile Menu */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responsive Styles for Navbar */
+@media (max-width: 768px) {
+  nav {
+    padding: 0 20px;
+  }
+  nav .nav-links,
+  nav .nav-icons {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-nav {
+    display: none;
+  }
+}

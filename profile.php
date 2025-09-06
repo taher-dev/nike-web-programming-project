@@ -1,6 +1,5 @@
 <?php
-// Session must be started to access session variables
-session_start();
+
 // Includes the database connection script
 include("connect.php");
 
@@ -95,6 +94,10 @@ mysqli_select_db($conn, "login");
 </head>
 
 <body>
+    <?php
+    // Import navigation component.
+    include 'components/navbar.php';
+    ?>
     <div class="container">
         <div class="profile-card">
             <div class="profile-img">
