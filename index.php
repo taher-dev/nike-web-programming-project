@@ -214,8 +214,7 @@ if ($result && mysqli_num_rows($result) > 0) {
         <div class="page-4-left-bottom">
           <p class="design-p">
             Handcrafted in Italy from calfskin leather and accented with Dior's signature Oblique monogram jacquard
-            Swooshes. Dior and Air Jordan's iconic branding are mixed on the Wings logo, tongue labels and outsole
-            graphics.
+            Swooshes. Dior and Air Jordan's iconic branding are mixed on the Wings logo.
           </p>
           <p class="project-p hide">
             Gear up for adventure with Nike x ONE PIECE. This collab blends Nike's classic street style with One Piece’s
