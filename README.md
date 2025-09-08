@@ -94,13 +94,12 @@ Here is an overview of the project's file structure:
 
 ---
 
-## 🧑‍💻 Contributors
+## 👥 Contributors
 
-This project was brought to life by:
-
-- Abdullah
-- Mihad
-- Monmoy
-- Taher
+| Avatar                                                                                                                 | Name                                                    | Email                         |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ----------------------------- |
+| [<img src="https://github.com/taher-dev.png" width="60px;" alt="Taher Mahmud Monmoy"/>](https://github.com/taher-dev)  | **[Taher Mahmud Monmoy](https://github.com/taher-dev)** | monmoyzx@gmail.com            |
+| [<img src="https://github.com/aaarafat17.png" width="60px;" alt="Abdullah Sardar"/>](https://github.com/aaarafat17)    | **[Abdullah Sardar](https://github.com/aaarafat17)**    | abdullahalarafat147@gmail.com |
+| [<img src="https://github.com/mihadkazi1.png" width="60px;" alt="Kazi Saqlain Mihad"/>](https://github.com/mihadkazi1) | **[Kazi Saqlain Mihad](https://github.com/aaarafat17)** | mihadkazi1@gmail.com          |
 
 Happy coding\! 🎉
