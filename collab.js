@@ -1,6 +1,6 @@
-let page4H1 = document.querySelectorAll(".page-4-left-top h1");
-let page4P = document.querySelectorAll(".page-4-left-bottom p");
-let page4IMG = document.querySelectorAll(".page-4-wrapper img");
+let page4H1 = document.querySelectorAll(".collab-left-top h1");
+let page4P = document.querySelectorAll(".collab-left-bottom p");
+let page4IMG = document.querySelectorAll(".collab-wrapper img");
 let page4Click = () => {
   page4H1.forEach((h1) => {
     h1.addEventListener("click", () => {

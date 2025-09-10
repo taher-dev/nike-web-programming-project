@@ -46,68 +46,6 @@ if ($result && mysqli_num_rows($result) > 0) {
     a.cart:hover {
       background-color: #11111120;
     }
-
-    #page-4 {
-      min-height: 100vh;
-      width: 100%;
-      position: relative;
-      z-index: 8;
-    }
-
-    .page-4-wrapper {
-      background-color: #111;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 0 120px;
-      border-radius: 30px;
-    }
-
-    .page-4-wrapper img {
-      width: 50%;
-      height: 60vh;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 30px;
-    }
-
-    .hide {
-      display: none;
-    }
-
-    .page-4-left {
-      display: flex;
-      flex-direction: column;
-      margin: 4vw auto auto auto;
-      text-wrap: pretty;
-      font-weight: 200;
-      font-size: 2.2rem;
-      line-height: 4.3rem;
-    }
-
-    .page-4-left-top h1 {
-      font-size: 40px;
-      cursor: pointer;
-      padding-left: 1rem;
-      color: #ffffff70;
-      border-left: 3px solid #ffffff70;
-    }
-
-    .page-4-left h1:nth-child(3) {
-      margin-bottom: 3rem;
-    }
-
-    .page-4-left-bottom p {
-      color: #ffffff99;
-      max-width: 30ch;
-      font-size: 1.1rem;
-      line-height: 1.5rem;
-    }
-
-    .select {
-      color: #fff !important;
-      border-left: 3px solid #fff !important;
-    }
   </style>
 
 </head>
@@ -203,15 +141,15 @@ if ($result && mysqli_num_rows($result) > 0) {
     </div>
   </div>
 
-  <div id="page-4">
-    <div class="page-4-wrapper">
-      <div class="page-4-left">
-        <div class="page-4-left-top">
+  <div id="collab">
+    <div class="collab-wrapper">
+      <div class="collab-left">
+        <div class="collab-left-top">
           <h1 id="design-h1" class="select">Nike X Dior</h1>
           <h1 id="project-h1" class="">Nike X One Piece</h1>
           <h1 id="execution-h1" class="">Nike X Tiffany & Co.</h1>
         </div>
-        <div class="page-4-left-bottom">
+        <div class="collab-left-bottom">
           <p class="design-p">
             Handcrafted in Italy from calfskin leather and accented with Dior's signature Oblique monogram jacquard
             Swooshes. Dior and Air Jordan's iconic branding are mixed on the Wings logo.
